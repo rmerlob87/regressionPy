@@ -33,9 +33,8 @@ plt.title('Polynomial fit function\n{:.2e}$x^6$+{:.2e}$x^5$+{:.2e}$x^4$+{:.2e}$x
         format(af,bf,cf,df,ef,ff,gf))
 plt.grid()
 
-
+#make an array and write to a plain file
 fittedCurve = np.array([X,Yf]).transpose()
-
 np.savetxt('testData1.sta', fittedCurve, 
            delimiter=',', header=('X, Yf'), 
            fmt='%5.5g')
