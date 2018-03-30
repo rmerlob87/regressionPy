@@ -1,15 +1,14 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-
-
-
+#sets polynomial coefficients and initializes arrays
 a, b, c, d, e, f, g =(-1e-2, -1e-6, -1e-3, -1e-5, 1e-2, -1e-2, 10)
 X=np.arange(0,1+0.1,0.01)
 Yp=np.array([])
 Yf=np.array([])
 Yr=np.array([])
 
+#creates a randomized array "Yr" from the polynomial coefficients
 for x in X:
     rndNumber=np.random.random_sample()
     rndSign=np.random.choice((-1,1))
@@ -18,10 +17,12 @@ for x in X:
     Yr=np.append(Yr,rnd+(a*x**6+b*x**5+c*x**4+d*x**3+e*x**2+f*x**1+g))
     Yp=np.append(Yp,(a*x**6+b*x**5+c*x**4+d*x**3+e*x**2+f*x**1+g))
 
+#obtains fitted coefficients from the randomized list
 af, bf, cf, df, ef, ff, gf=np.polyfit(X,Yr,6)
 for x in X:
     Yf=np.append(Yf,(af*x**6+bf*x**5+cf*x**4+df*x**3+ef*x**2+ff*x**1+gf))
 
+#plots the results
 f, ax = plt.subplots()
 #ax.plot(X,Yp, label= 'fittedPolynomial')
 ax.scatter(X,Yr,marker='x', label = 'Test data')
