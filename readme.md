@@ -24,3 +24,5 @@ Updating an existing project
     After you make your updates, add files to staging git add -A (taking a snapshot)
     Add files (snapshot) to local repo: git commit -m "commit message"
     Now push your local repo to Github: git push origin master
+    
+This is another change....
