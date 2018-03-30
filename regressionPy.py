@@ -1,0 +1,58 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+
+
+a, b, c, d, e, f, g =(-1e-2, -1e-6, -1e-3, -1e-5, 1e-2, -1e-2, 10)
+X=np.arange(0,1+0.1,0.01)
+Yp=np.array([])
+Yf=np.array([])
+Yr=np.array([])
+
+for x in X:
+    rndNumber=np.random.random_sample()
+    rndSign=np.random.choice((-1,1))
+    rnd=rndSign*rndNumber*0.002 
+    print(rnd)
+    Yr=np.append(Yr,rnd+(a*x**6+b*x**5+c*x**4+d*x**3+e*x**2+f*x**1+g))
+    Yp=np.append(Yp,(a*x**6+b*x**5+c*x**4+d*x**3+e*x**2+f*x**1+g))
+
+af, bf, cf, df, ef, ff, gf=np.polyfit(X,Yr,6)
+for x in X:
+    Yf=np.append(Yf,(af*x**6+bf*x**5+cf*x**4+df*x**3+ef*x**2+ff*x**1+gf))
+
+f, ax = plt.subplots()
+#ax.plot(X,Yp, label= 'fittedPolynomial')
+ax.scatter(X,Yr,marker='x', label = 'Test data')
+ax.plot(X,Yf,"r--", label= 'Fitted Polynomial')
+ax.legend()
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+plt.title('Polynomial fit function\n{:.2e}$x^6$+{:.2e}$x^5$+{:.2e}$x^4$+{:.2e}$x^3$+{:.2e}$x^2$+{:.2e}$x^1$+{:.2e}'.
+        format(af,bf,cf,df,ef,ff,gf))
+plt.grid()
+
+
+fittedCurve = np.array([X,Yf]).transpose()
+
+np.savetxt('testData1.sta', fittedCurve, 
+           delimiter=',', header=('X, Yf'), 
+           fmt='%5.5g')
+
+
+
+
+#
+#csv_rows = ["{},{}".format(i, j) for i, j in data]
+#csv_text = "\n".join(csv_rows)
+#
+## write it to a file
+#with open('testData.csv', 'w') as f:
+#    f.write(csv_text)
+    
+#with open("testData.csv","w") as f:
+#     f.write("\n")
+#     f.write(str(Yf))
+#     f.write("\n")
+#     f.write(str((af, bf, cf, df, ef, ff, gf)))
