@@ -13,7 +13,6 @@ for x in X:
     rndNumber=np.random.random_sample()
     rndSign=np.random.choice((-1,1))
     rnd=rndSign*rndNumber*0.002 
-    print(rnd)
     Yr=np.append(Yr,rnd+(a*x**6+b*x**5+c*x**4+d*x**3+e*x**2+f*x**1+g))
     Yp=np.append(Yp,(a*x**6+b*x**5+c*x**4+d*x**3+e*x**2+f*x**1+g))
 
@@ -40,20 +39,3 @@ fittedCurve = np.array([X,Yf]).transpose()
 np.savetxt('testData1.sta', fittedCurve, 
            delimiter=',', header=('X, Yf'), 
            fmt='%5.5g')
-
-
-
-
-#
-#csv_rows = ["{},{}".format(i, j) for i, j in data]
-#csv_text = "\n".join(csv_rows)
-#
-## write it to a file
-#with open('testData.csv', 'w') as f:
-#    f.write(csv_text)
-    
-#with open("testData.csv","w") as f:
-#     f.write("\n")
-#     f.write(str(Yf))
-#     f.write("\n")
-#     f.write(str((af, bf, cf, df, ef, ff, gf)))
