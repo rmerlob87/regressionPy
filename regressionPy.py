@@ -38,3 +38,5 @@ fittedCurve = np.array([X,Yf]).transpose()
 np.savetxt('testData1.sta', fittedCurve, 
            delimiter=',', header=('X, Yf'), 
            fmt='%5.5g')
+
+#modify from pycharm editor
