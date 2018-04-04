@@ -12,7 +12,7 @@ Yr=np.array([])
 for x in X:
     rndNumber=np.random.random_sample()
     rndSign=np.random.choice((-1,1))
-    rnd=rndSign*rndNumber*0.002 
+    rnd=rndSign*rndNumber*0.002
     Yr=np.append(Yr,rnd+(a*x**6+b*x**5+c*x**4+d*x**3+e*x**2+f*x**1+g))
     Yp=np.append(Yp,(a*x**6+b*x**5+c*x**4+d*x**3+e*x**2+f*x**1+g))
 
@@ -22,7 +22,7 @@ for x in X:
     Yf=np.append(Yf,(af*x**6+bf*x**5+cf*x**4+df*x**3+ef*x**2+ff*x**1+gf))
 
 #plots the results
-f, ax = plt.subplots()
+f, (ax, ax2) = plt.subplots(2,1)
 #ax.plot(X,Yp, label= 'fittedPolynomial')
 ax.scatter(X,Yr,marker='x', label = 'Test data')
 ax.plot(X,Yf,"r--", label= 'Fitted Polynomial')
@@ -35,9 +35,15 @@ ax.grid()
 
 #make an array and write to a plain file
 fittedCurve = np.array([X,Yf]).transpose()
-np.savetxt('testData1.sta', fittedCurve, 
-           delimiter=',', header=('X, Yf'), 
+np.savetxt('testData1.sta', fittedCurve,
+           delimiter=',', header=('X, Yf'),
            fmt='%5.5g')
+
+#f, ax = plt.subplots()
+ax2.hist(np.random.randn(100000),100, label='unrelated std distribution') #std distribution
+ax2.legend()
+
 
 #modify from pycharm editor
 #commit test
+#hi atom
