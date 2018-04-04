@@ -40,3 +40,4 @@ np.savetxt('testData1.sta', fittedCurve,
            fmt='%5.5g')
 
 #modify from pycharm editor
+#commit test
