@@ -29,9 +29,9 @@ ax.plot(X,Yf,"r--", label= 'Fitted Polynomial')
 ax.legend()
 ax.set_xlabel('x')
 ax.set_ylabel('y')
-plt.title('Polynomial fit function\n{:.2e}$x^6$+{:.2e}$x^5$+{:.2e}$x^4$+{:.2e}$x^3$+{:.2e}$x^2$+{:.2e}$x^1$+{:.2e}'.
+ax.set_title('Polynomial fit function\n{:.2e}$x^6$+{:.2e}$x^5$+{:.2e}$x^4$+{:.2e}$x^3$+{:.2e}$x^2$+{:.2e}$x^1$+{:.2e}'.
         format(af,bf,cf,df,ef,ff,gf))
-plt.grid()
+ax.grid()
 
 #make an array and write to a plain file
 fittedCurve = np.array([X,Yf]).transpose()
